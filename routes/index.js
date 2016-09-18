@@ -29,6 +29,16 @@ router.post('/api/contatos', function(req, res) {
     });
  
 });
+
+// API listar total contatos
+router.get('/api/contatos/total', function(req, res) {
+    Contato.find(function(err, contatos) {
+        if (err)
+            res.send(err)
+        // Retorna número de contatos encontrados no BD
+        res.json(contatos.length); 
+    });
+});
  
 // Rota para index.html
 router.get('*', function(req, res) {   

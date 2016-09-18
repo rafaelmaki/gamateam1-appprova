@@ -3,7 +3,7 @@
 // Criamos um módulo Angular chamado listaContatos
 var contatos = angular.module('contatos', []);
  
-function mainController($scope, $http) {    
+function mainController($scope, $http, $window) {    
  
     // Quando clicar no botão Criar, envia informações para a API Node
     $scope.criarContato = function() {
@@ -13,9 +13,11 @@ function mainController($scope, $http) {
                 $scope.formContato = {};
                 $scope.contatos = data;
                 console.log(data);
+                $window.alert("Cadastrado com sucesso");
             })
-            .error(function(data) {
-                console.log('Error: ' + data);
+            .error(function(err) {
+                console.log('Error: ' + err);
+                $window.alert("Erro ao cadastrar: " + err);
             });
     };
  

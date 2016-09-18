@@ -4,13 +4,11 @@ Website do Grupo 1 - APP Prova - Gama Experience SP
 
 Instruções
 
-Instalar dependências:
+Pré-requisitos:
 
 MongoDB <br>
 Nodejs
 
-Executar:
+Instalar dependências:
 
-npm install <br>
-bower install
-
+npm install
