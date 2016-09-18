@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var expressValidator = require('express-validator');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 // parse application/vnd.api+json as json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(expressValidator());
 app.use(methodOverride());
  
  // including routes

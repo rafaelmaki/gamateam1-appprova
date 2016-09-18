@@ -2,7 +2,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
 var Contato = mongoose.model('Contato');
- 
+var util = require('util');
+
 // API listar contatos
 router.get('/api/contatos', function(req, res) {
     Contato.find(function(err, contatos) {
@@ -15,12 +16,22 @@ router.get('/api/contatos', function(req, res) {
  
 // API Criar contato
 router.post('/api/contatos', function(req, res) {
-    var nome = req.body.nome;
-    var email = req.body.email;
-    if(!nome || !email) {
-        res.status(404).send('Dados inválidos').end();
+
+    req.checkBody('nome', 'Nome inválido').notEmpty();
+    req.checkBody('email', 'Email inválido').notEmpty().isEmail();
+
+    var errors = req.validationErrors();
+    if (errors) {
+        res.send('There have been validation errors: ' + util.inspect(errors), 400);
         return;
     }
+
+    var nome = req.body.nome;
+    var email = req.body.email;
+    // if(!nome || !email) {
+    //     res.status(404).send('Dados inválidos').end();
+    //     return;
+    // }
 
     Contato.findOne({ 'email': email}, function (err, contato) {
         if (err) {
@@ -49,20 +60,7 @@ router.post('/api/contatos', function(req, res) {
             return;
         }
     });
-    
-    // Contato.create({
-    //     nome: req.body.nome,
-    //     email: req.body.email,
-    //     ipaddress: getClientIp(req),
-    //     data_contato: new Date(),
-    //     done : false
-    // }, function(err, contato) {
-    //     if (err)
-    //         res.status(404).send(err).end();
-    //     else
-    //         res.send("Cadastrado com sucesso").end();
-    // });
- 
+
 });
 
 // API listar total contatos
