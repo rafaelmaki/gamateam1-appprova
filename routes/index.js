@@ -15,22 +15,53 @@ router.get('/api/contatos', function(req, res) {
  
 // API Criar contato
 router.post('/api/contatos', function(req, res) {
-    if(!req.body.nome || !req.body.email) {
+    var nome = req.body.nome;
+    var email = req.body.email;
+    if(!nome || !email) {
         res.status(404).send('Dados inválidos').end();
         return;
     }
-    Contato.create({
-        nome: req.body.nome,
-        email: req.body.email,
-        ipaddress: getClientIp(req),
-        data_contato: new Date(),
-        done : false
-    }, function(err, contato) {
-        if (err)
-            res.status(404).send(err).end();
-        else
-            res.send("Cadastrado com sucesso").end();
+
+    Contato.findOne({ 'email': email}, function (err, contato) {
+        if (err) {
+            Contato.create({
+                nome: nome,
+                email: email,
+                ipaddress: getClientIp(req),
+                data_contato: new Date(),
+                done : false
+            }, function(err, contato) {
+                if (err) {
+                    res.status(404).send(err).end();
+                }
+                else {
+                    res.send("Cadastrado com sucesso").end();
+                }
+                return;
+            });
+        } else {
+            if(contato) {
+                res.status(404).send("Email já cadastrado!").end();
+            } else {
+                insertContato(req, res, nome, email);
+            }
+            
+            return;
+        }
     });
+    
+    // Contato.create({
+    //     nome: req.body.nome,
+    //     email: req.body.email,
+    //     ipaddress: getClientIp(req),
+    //     data_contato: new Date(),
+    //     done : false
+    // }, function(err, contato) {
+    //     if (err)
+    //         res.status(404).send(err).end();
+    //     else
+    //         res.send("Cadastrado com sucesso").end();
+    // });
  
 });
 
@@ -80,5 +111,33 @@ function getClientIp(req) {
   }
   return ipAddress;
 };
+
+function emailExists(email) {
+    Contato.findOne({ 'email': email}, function (err, contato) {
+        if (err) {
+            return null;
+        } else {
+            return contato;
+        }
+    });
+};
+
+function insertContato(req, res, nome, email) {
+    Contato.create({
+        nome: nome,
+        email: email,
+        ipaddress: getClientIp(req),
+        data_contato: new Date(),
+        done : false
+    }, function(err, contato) {
+        if (err) {
+            res.status(404).send(err).end();
+        }
+        else {
+            res.send("Cadastrado com sucesso").end();
+        }
+        return;
+    });
+}
  
 module.exports = router;

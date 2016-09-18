@@ -6,7 +6,7 @@ var methodOverride = require('method-override');
 
 var app = express();
 
-var config = require("./config/config.json");
+var config = require("./config/configDev.json");
 
 // conectando ao mongodb no localhost, criando o banco de dados contato
 // mongoose.connect('mongodb://localhost/contato');

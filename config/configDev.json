@@ -1,0 +1,3 @@
+{
+    "mongoConfig": "mongodb://mongodb:mongodb!gama1@appenemdb.brazilsouth.cloudapp.azure.com:27017/primeironoenemdev"
+}
