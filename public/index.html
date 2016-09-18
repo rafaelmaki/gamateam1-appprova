@@ -37,14 +37,25 @@
  
         <div id="contato-form">
             <hr>
-            <form>
+            <form name="myForm">
                 <div class="form-group col-md-3">
                     <label for="nomeContato">Nome</label>
-                    <input type="text" class="form-control" id="nomeContato" placeholder="Nome Sobrenome" ng-model="formContato.nome">
+                    <input type="text" class="form-control" name="nomeContato" id="nomeContato" placeholder="Nome Sobrenome" ng-model="formContato.nome" required>
+                    <div role="alert">
+                        <span class="error" ng-show="nomeContato.$error.required">
+                            Campo Obrigatório!</span>
+                    </div>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="emailContato">E-mail</label>
-                    <input type="text" class="form-control" id="emailContato" placeholder="exemplo@exemplo.com" ng-model="formContato.email">
+                    <input type="email" class="form-control" name="emailContato" id="emailContato" placeholder="exemplo@exemplo.com" ng-model="formContato.email"
+                    required>
+                    <div role="alert">
+                        <span class="error" ng-show="emailContato.$error.required">
+                            Campo Obrigatório!</span>
+                        <span class="error" ng-show="emailContato.$error.email">
+                            Email inválido</span>
+                    </div>
                 </div>
                 <div class="form-group col-md-3">
                     <button type="submit" class="btn btn-primary" ng-click="criarContato()">Criar</button>

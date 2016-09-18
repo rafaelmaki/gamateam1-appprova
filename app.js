@@ -6,8 +6,16 @@ var methodOverride = require('method-override');
 
 var app = express();
 
+var config = require("./config/config.json");
+
 // conectando ao mongodb no localhost, criando o banco de dados contato
-mongoose.connect('mongodb://localhost/contato');
+// mongoose.connect('mongodb://localhost/contato');
+
+var uri = config.mongoConfig;
+mongoose.connect(uri, function(error) {
+  // if error is truthy, the initial connection failed.
+  console.log("Erro ao conectar no MongoDB ", error);
+})
 // Requisição ao arquivo que cria model Contato
 require('./models/Contato');
 
@@ -29,6 +37,7 @@ var index = require('./routes/index');
 app.use('/', index);
 
 // Define a porta 8080 onde será executada nossa aplicação
-app.listen(8080);
+var port = process.env.port || 3000;
+app.listen(port);
 // Imprime uma mensagem no console
-console.log("Aplicação executada na porta 8080");
+console.log("Aplicação executada na porta ", port);

@@ -15,17 +15,21 @@ router.get('/api/contatos', function(req, res) {
  
 // API Criar contato
 router.post('/api/contatos', function(req, res) {
+    if(!req.body.nome || !req.body.email) {
+        res.status(404).send('Dados inválidos').end();
+        return;
+    }
     Contato.create({
         nome: req.body.nome,
         email: req.body.email,
-        ipaddress: req.ip,
+        ipaddress: getClientIp(req),
         data_contato: new Date(),
         done : false
     }, function(err, contato) {
         if (err)
-            res.send(err);
+            res.status(404).send(err).end();
         else
-            res.send("Cadastrado com sucesso");
+            res.send("Cadastrado com sucesso").end();
     });
  
 });
@@ -62,5 +66,19 @@ router.get('*', function(req, res) {
     }
   });
 });
+
+function getClientIp(req) {
+  var ipAddress;
+  var forwardedIpsStr = req.header('x-forwarded-for'); 
+  if (forwardedIpsStr) {
+    var forwardedIps = forwardedIpsStr.split(',');
+    ipAddress = forwardedIps[0];
+  }
+  if (!ipAddress) {
+    var forwardedIps = req.connection.remoteAddress.split(',');
+    ipAddress = forwardedIps[0];
+  }
+  return ipAddress;
+};
  
 module.exports = router;
