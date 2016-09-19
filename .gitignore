@@ -2,3 +2,6 @@ node_modules/
 .vscode/
 logging-errors.txt
 landing/lib/
+config/config.json
+iisnode.yml
+web.config
