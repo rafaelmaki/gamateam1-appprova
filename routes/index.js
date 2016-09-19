@@ -22,7 +22,9 @@ router.post('/api/contatos', function(req, res) {
 
     var errors = req.validationErrors();
     if (errors) {
-        res.status(400).send('Ocorreram problemas de validação: ' + util.inspect(errors));
+        var msg = errors[0].msg;
+        // res.status(400).send('Ocorreram problemas de validação: ' + util.inspect(errors));
+        res.status(400).send(msg);
         return;
     }
 

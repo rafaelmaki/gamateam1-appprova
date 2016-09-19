@@ -42,6 +42,11 @@ angular.module('contatos')
     var $ctrl = this;
 
     $ctrl.model = {};
+    $ctrl.erros = {
+        nome: null,
+        email: null,
+        mensagem: null
+    };
 
     $ctrl.close = function () {
       $uibModalInstance.close();
@@ -49,6 +54,27 @@ angular.module('contatos')
 
     // Quando clicar no botão Criar, envia informações para a API Node
     $ctrl.criarContato = function() {
+        $ctrl.erros = {
+            nome: null,
+            email: null,
+            mensagem: null
+        };
+
+        var nome = $ctrl.model.nome;
+        var email = $ctrl.model.nome;
+
+        if(!nome) {
+            $ctrl.erros.nome = "Campo nome é obrigatório";
+        }
+
+        if(!email) {
+            $ctrl.erros.email = "Campo email é obrigatório";
+        }
+
+        if(!nome || !email) {
+            return;
+        }
+
         $http.post('/api/contatos', $ctrl.model)
             .success(function(data) {
                 // Limpa o formulário para criação de outros contatos
@@ -60,6 +86,7 @@ angular.module('contatos')
             })
             .error(function(err) {
                 console.log('Error: ' + err);
+                $ctrl.erros.mensagem = err;
                 // $window.alert("Erro ao cadastrar: " + err);
             });
     };
