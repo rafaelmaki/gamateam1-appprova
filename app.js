@@ -21,7 +21,7 @@ mongoose.connect(uri, function(error) {
 require('./models/Contato');
 
 // public static files
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/landing'));
 // log http requests
 app.use(logger('dev'));
 // parse application/x-www-form-urlencoded                                    
@@ -38,8 +38,8 @@ var index = require('./routes/index');
 
 app.use('/', index);
 
-// Define a porta 8080 onde será executada nossa aplicação
-var port = process.env.port || 3000;
+// Define a porta onde será executada nossa aplicação
+var port = process.env.port || 5000;
 app.listen(port);
 // Imprime uma mensagem no console
 console.log("Aplicação executada na porta ", port);

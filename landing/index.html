@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" ng-app="contatos">
 <head>
     <meta charset="utf-8" />
     <title>Primeiro no enem - Aumente sua performance</title>
@@ -7,16 +7,21 @@
     <meta name="keywords" content="primeiro no enem" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../bower_components/animate.css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="../bower_components/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="lib/animate.css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="lib/simple-line-icons/css/simple-line-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link rel="stylesheet" href="css/app.css" type="text/css" />
-</head>
-<body>
+    <link rel="stylesheet" href="css/modal.css" type="text/css" />
 
-    
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="js/angularApp.js"></script>
+</head>
+<body ng-controller="MainController">
+
     <div id="content">
         <div class="bg-light"  
              
@@ -35,7 +40,9 @@
                             <h3 class="text-muted m-t-xl l-h-1x" style="color:#ffffff">Assista gratuitamente o vídeo do Bruno Galhardo, primeiro no Enem de 2015, com seus segredos de sucesso.</h3>
 
                             <p class="text-center m-b-xxl wrapper">
-                                <a href="#"  class="btn b-2x btn-warning text-lg font-bold m-b-xxl animated fadeInUpBig" style="background-color:#FFB200 ;border-color:#FFB200">Quero mandar bem no Enem</a>
+                                <a href="#"  ng-click="$event.preventDefault();openModalContato()"
+                                    class="btn b-2x btn-warning text-lg font-bold m-b-xxl animated fadeInUpBig" 
+                                    style="background-color:#FFB200 ;border-color:#FFB200">Quero mandar bem no Enem</a>
                             </p>
                         </div>
                     </div>
@@ -79,7 +86,9 @@
                         </div>
                     </div>
                     <p class="text-center m-b-xxl wrapper">
-                        <a href="#" target="_blank" class="btn b-2x btn-warning text-lg font-bold m-b-xxl animated fadeInUpBig" style="background-color:#FFB200 ;border-color:#FFB200">Quero ser aprovado</a>
+                        <a href="#" ng-click="$event.preventDefault();openModalContato()"
+                            class="btn b-2x btn-warning text-lg font-bold m-b-xxl animated fadeInUpBig" 
+                            style="background-color:#FFB200 ;border-color:#FFB200">Quero ser aprovado</a>
                     </p>
                 </div>
 
@@ -129,7 +138,9 @@
                         <p class="h4 l-h-1x">Por isso fiz questão de dispor de um pouco do meu tempo e gravar esse vídeo, onde conto a você, as dicas mais valiosas que me fez ser primeiro colocado em alguns dos vestibulares mais concorridos do país.</p>
 
                         <p class="text-center m-b-xxl wrapper">
-                            <a href="#" target="_blank" class="btn b-2x btn-warning text-lg font-bold m-b-xxl animated fadeInUpBig" style="background-color:#FFB200 ;border-color:#FFB200">Quero assistir o vídeo</a>
+                            <a href="#" ng-click="$event.preventDefault();openModalContato()"
+                                class="btn b-2x btn-warning text-lg font-bold m-b-xxl animated fadeInUpBig" 
+                                style="background-color:#FFB200 ;border-color:#FFB200">Quero assistir o vídeo</a>
                         </p>
 
                     </div>
@@ -138,8 +149,6 @@
 
             </div>
         </div>
-
-
 
         <!-- footer -->
 
@@ -172,9 +181,62 @@
         </footer>
     </div>
     <!-- / footer -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="../bower_components/jquery_appear/jquery.appear.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/jquery_appear/jquery.appear.js"></script>
     <script src="js/landing.js"></script>
+
+    <!-- Modal Cadastro -->
+    <script type="text/ng-template" id="cadastroModal.html">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                ng-click="$ctrl.close()">
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <div class="progress" style="margin: 20px">
+                <div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="50" 
+                        aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+                    <span>50% Completo</span>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-muted m-t-lg">
+                    Estamos quase lá: Entre com seus dados para acessar o vídeo com os segredos de sucesso do Bruno Galhardo para ser o primeiro no Enem.
+                </p>
+            </div>
+            <div class="text-center" style="margin: 15px">
+                <h3>Digite seu nome e e-mail abaixo para assistir as melhores dicas para estudar para o Enem<h3>
+            </div>
+            <div id="contato-form">
+                <form name="myForm" novalidate>
+                    <div class="form-group">
+                        <input type="text" class="form-control text-center" name="nome" id="nome" 
+                            placeholder="Digite seu nome" ng-model="$ctrl.model.nome" required>
+                        <validation-message field="myForm.nome"></validation-message>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control text-center" name="email" id="email" 
+                            placeholder="Digite seu e-mail" ng-model="$ctrl.model.email"
+                        required>
+                        <div role="alert">
+                            <span class="error" ng-show="email.$error.required">
+                                Campo Obrigatório!</span>
+                            <span class="error" ng-show="email.$error.email">
+                                Email inválido</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p class="text-center m-b-xxl wrapper">
+                            <a href="#" ng-click="$event.preventDefault();$ctrl.criarContato()"
+                                class="btn b-2x btn-warning text-lg font-bold m-b-xxl fadeInUpBig" 
+                                style="background-color:#FFB001 ;border-color:#FFB001">Quero passar no Enem</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </script>
 </body>
 </html>

@@ -22,16 +22,12 @@ router.post('/api/contatos', function(req, res) {
 
     var errors = req.validationErrors();
     if (errors) {
-        res.send('There have been validation errors: ' + util.inspect(errors), 400);
+        res.status(400).send('Ocorreram problemas de validação: ' + util.inspect(errors));
         return;
     }
 
     var nome = req.body.nome;
     var email = req.body.email;
-    // if(!nome || !email) {
-    //     res.status(404).send('Dados inválidos').end();
-    //     return;
-    // }
 
     Contato.findOne({ 'email': email}, function (err, contato) {
         if (err) {
@@ -43,7 +39,7 @@ router.post('/api/contatos', function(req, res) {
                 done : false
             }, function(err, contato) {
                 if (err) {
-                    res.status(404).send(err).end();
+                    res.status(400).send(err).end();
                 }
                 else {
                     res.send("Cadastrado com sucesso").end();
@@ -52,7 +48,7 @@ router.post('/api/contatos', function(req, res) {
             });
         } else {
             if(contato) {
-                res.status(404).send("Email já cadastrado!").end();
+                res.status(400).send("Email já cadastrado!").end();
             } else {
                 insertContato(req, res, nome, email);
             }
@@ -76,7 +72,7 @@ router.get('/api/contatos/total', function(req, res) {
 // Rota para index.html
 router.get('*', function(req, res) {   
     var options = {
-    root: __dirname + '/../public/',
+    root: __dirname + '/../landing/',
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),
@@ -129,7 +125,7 @@ function insertContato(req, res, nome, email) {
         done : false
     }, function(err, contato) {
         if (err) {
-            res.status(404).send(err).end();
+            res.status(400).send(err).end();
         }
         else {
             res.send("Cadastrado com sucesso").end();
