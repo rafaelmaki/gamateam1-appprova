@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="primeiroEnemApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Passe no Enem 2016 estudando menos | Primeiro no Enem</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/mq.css">
+        <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="footage/player.min.css">
+
+        <link rel="stylesheet" href="css/modal.css" type="text/css" />
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" type="text/css" />
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="js/angularApp.js"></script>
+        <script src="js/sessionService.js"></script>
+    </head>
+    <body class="grid" ng-controller="MainController">
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWVTMQ"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NWVTMQ');</script>
+        <!-- End Google Tag Manager -->
+        <header>
+            <section id="footage">
+                <section class="footage-grid">
+                    <section class="footage-logo container">
+                        <figure>
+                            <img src="assets/logo-primeiro-no-enem.png" alt="Primeiro no Enem">
+                        </figure>
+                    </section>
+                    <h1 class="header-title">Muitos estudantes <span class="bold red">incluindo você</span> cometem os mesmos erros ao tentar <span class="bold red">passar no Enem</span></h1>
+                    <h2 class="header-subtitle">Assista <span class="bold">gratuitamente</span> o vídeo do Bruno Galhardo, 1° na FGV e top 5 na Fuvest, com seus segredos de sucesso</h2>
+                    <button class="cta" ng-click="openModalContato()">Quero mandar bem no Enem</button>
+                </section>
+            </section>
+            <section id="video" class="player" data-property="{videoURL:'4RYmuYiOeM0',containment:'#footage', showControls:false, autoPlay:true, loop:true, mute:true, startAt:0, opacity:1, addRaster:true, quality:'small'}"></section>
+        </header>
+        <main>
+            <section class="juntese-bg">
+                <section class="container juntese-grid">
+                    <h1 class="section-title">Junte-se aos mais de <span class="bold numero">27.364</span> estudantes que já viram nossas valiosas dicas</h1>
+                    <section class="juntese-vantagens">
+                        <section class="juntese-box">
+                            <section class="juntese-box-estude-img">
+                                <figure>
+                                    <img src="assets/estude-de-forma-inteligente.jpg" alt="Estude de forma inteligente">
+                                </figure>
+                            </section>
+                            <h2 class="section-subtitle">Estude de forma inteligente</h2>
+                            <p>Conhecer a prova é muito importante para chegar no dia mais tranquilo.</p>
+                        </section>
+                        <section class="juntese-box">
+                            <section class="juntese-box-descubra-img">
+                                <figure>
+                                    <img src="assets/descubra-todos-os-segredos.jpg" alt="Descubra todos os segredos">
+                                </figure>
+                            </section>
+                            <h2 class="section-subtitle">Descubra todos os segredos</h2>
+                            <p>Vejo o que os melhores estudantes estão fazendo e aplique em seu plano de estudos.</p>
+                        </section>
+                        <section class="juntese-box">
+                            <section class="juntese-box-aumente-img">
+                                <figure>
+                                    <img src="assets/aumente-sua-performance.jpg" alt="Aumente sua performance">
+                                </figure>
+                            </section>
+                            <h2 class="section-subtitle">Aumente sua performance</h2>
+                            <p>Identifique suas forças e fraquezas e faça ajustes para obter os melhores resultados.</p>
+                        </section>
+                    </section>
+                    <button class="cta" ng-click="openModalContato()">Quero ser aprovado</button>
+                </section>
+            </section>
+            <section class="mensagem-bg">
+                <section class="container mensagem-grid">
+                    <section class="mensagem-foto">
+                        <figure>
+                            <img src="assets/bruno-galhardo.jpg" alt="Bruno Galhardo">
+                        </figure>
+                    </section>
+                    <section class="mensagem-content">
+                        <h1 class="section-title">Mensagem do Bruno Galhardo</h1>
+                        <p>Olá! Assim como você, também sou um estudante, e sei bem a dificuldade que passamos, o quanto estudamos e a falta de tempo.</p>
+                        <p>Sabia que 39% dos alunos ainda não começaram a estudar para as provas? E isso acontece porque muitos tem medo de não passar.</p>
+                        <p>Por isso fiz questão de dispor de um pouco do meu tempo e gravar esse vídeo, onde conto a você, as dicas mais valiosas que me fez ser primeiro colocado em alguns dos vestibulares mais concorridos do país.</p>
+                        <button class="cta cta-mensagem" ng-click="openModalContato()">Quero assistir o vídeo</button>
+                    </section>
+                </section>
+            </section>
+            <section class="super-dica-bg">
+                <section class="container super-dica-grid">
+                    <section class="super-dica-content">
+                        <h1 class="section-title">Os alunos mais preparados usam a tecnologia ao seu favor</h1>
+                        <figure>
+                            <img src="assets/super-dica.png" alt="Super Dica!">
+                        </figure>
+                        <p>Quem disse que estudar é uma chatice? Os melhores alunos usam aplicativos para otimizar seu tempo de estudos e divertem-se durante todo a sua preparação.</p>
+                        <p>Siga os estudantes que mais se destacam e também faça uso de áreas de estudos organizadas por matérias, simulados com correção automática e estatísticas para descobrir seus pontos fortes e fracos e direcionar seus estudos. Faça uma busca no Google.</p>
+                    </section>
+                </section>
+            </section>
+        </main>
+        <footer>
+            <section class="footer-nav-bg">
+                <section class="container footer-nav-grid">
+                    <section class="footer-primeiro-no-enem">
+                        <figure>
+                            <img src="assets/logo-primeiro-no-enem.png" alt="Primeiro no Enem">
+                        </figure>
+                    </section>
+                    <p>Dicas e segredos valiosos para você atingir seus objetivos e ser o primeiro no Enem</p>
+                    <section class="footer-redes">
+                        <a href="#" target="blank"><i class="fa fa-facebook"></i></a>
+                        <a href="#" target="blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" target="blank"><i class="fa fa-instagram"></i></a>
+                        <a href="#" target="blank"><i class="fa fa-linkedin"></i></a>
+                    </section>
+                    <p>Copyright &copy; 2016 | Primeiro no Enem</p>
+                </section>
+            </section>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="footage/player.min.js"></script>
+        <script>
+            var myPlayer;
+            jQuery(function () {
+                myPlayer = jQuery("#video").YTPlayer();
+            });
+        </script>
+
+        <!-- Modal Cadastro -->
+        <script type="text/ng-template" id="cadastroModal.html">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    ng-click="$ctrl.close()">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <div class="progress" style="margin: 20px">
+                    <div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="50" 
+                            aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+                        <span>50% Completo</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="text-muted m-t-lg">
+                        Estamos quase lá: Entre com seus dados para acessar o vídeo com os segredos de sucesso do Bruno Galhardo para ser o primeiro no Enem.
+                    </p>
+                </div>
+                <div class="text-center" style="margin: 15px">
+                    <h3>Digite seu nome e e-mail abaixo para assistir as melhores dicas para estudar para o Enem<h3>
+                </div>
+                <div id="contato-form">
+                    <form name="myForm" novalidate>
+                        <div class="form-group">
+                            <input type="text" class="form-control text-center" name="nome" id="nome" 
+                                placeholder="Digite seu nome" ng-model="$ctrl.model.nome" required>
+                            <div class="alert alert-danger" ng-if="$ctrl.erros.nome">
+                                <span class="error">
+                                    {{$ctrl.erros.nome}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control text-center" name="email" id="email" 
+                                placeholder="Digite seu e-mail" ng-model="$ctrl.model.email"
+                            required>
+                            <div class="alert alert-danger" ng-if="$ctrl.erros.email">
+                                <span class="error">
+                                    {{$ctrl.erros.email}}</span>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" ng-if="$ctrl.erros.mensagem">
+                            <span class="error">
+                                {{$ctrl.erros.mensagem}}</span>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="cta" ng-click="$ctrl.criarContato()">Quero passar no Enem</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </script>
+    </body>
+</html>

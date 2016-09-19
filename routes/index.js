@@ -50,7 +50,7 @@ router.post('/api/contatos', function(req, res) {
             });
         } else {
             if(contato) {
-                res.status(400).send("Email já cadastrado!").end();
+                res.send("Email já cadastrado!").end();
             } else {
                 insertContato(req, res, nome, email);
             }
@@ -74,7 +74,7 @@ router.get('/api/contatos/total', function(req, res) {
 // Rota para index.html
 router.get('*', function(req, res) {   
     var options = {
-    root: __dirname + '/../public/views/landing/',
+    root: __dirname + '/../public/',
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),

@@ -1,0 +1,208 @@
+/* - - - - - - - - - -
+
+    >GRID
+
+- - - - - - - - - - */
+.grid {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+/* - - - - - - - - - -
+
+    >FOOTAGE
+
+- - - - - - - - - - */
+#footage {
+    width: 100%;
+    height: 65rem;
+    background: rgba(81, 150, 191, 0.60);
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background: url(../assets/footage-bg.jpg) center no-repeat;
+    background-size: cover;
+}
+.footage-grid {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 65rem;
+    position: absolute;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0,0,0,.5);
+    }
+        .footage-grid h1 {
+            margin-bottom: 2rem;
+        }
+        .footage-grid h2 {
+            margin-bottom: 4rem;
+        }
+.footage-logo {
+    margin-bottom: 2rem;
+}
+/* - - - - - - - - - -
+
+    >JUNTE-SE
+
+- - - - - - - - - - */
+.juntese-bg {
+    background: #FAF8F5;
+    padding: 7rem 0 4rem;
+}
+.juntese-grid {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+    .juntese-grid h1 {
+        margin-bottom: 5rem;
+    }
+    .juntese-grid h2 {
+        margin-bottom: 2rem;
+    }
+.juntese-vantagens {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.juntese-box {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+    .juntese-box img {
+        margin-bottom: 2rem;
+        border-radius: 50%;
+    }
+/* - - - - - - - - - -
+
+    >MENSAGEM
+
+- - - - - - - - - - */
+.mensagem-bg {
+    background: #F0EDE2;
+    padding: 7rem 0;
+}
+.mensagem-grid {
+    display: flex;
+    flex-flow: column;
+}
+    .mensagem-foto img {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+.mensagem-content {
+    display: flex;
+    flex-flow: column;
+    }
+    .mensagem-content h1 {
+        margin-bottom: 3rem;
+    }
+    .mensagem-content p {
+        margin-bottom: 2rem;
+    }
+    .mensagem-content .cta-mensagem {
+        margin: inherit;
+    }
+/* - - - - - - - - - -
+
+    >COMPARE SUA OPERAÇÃO
+
+- - - - - - - - - - */
+.super-dica-bg {
+    background: #FAF8F5;
+    padding: 4rem 0;
+}
+.super-dica-grid {
+    display: flex;
+}
+.super-dica-content {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+}
+    .super-dica-content h1 {
+        width: 65%;
+        margin-bottom: 2rem;
+    }
+    .super-dica-content p {
+        margin-bottom: 2rem;
+    }
+        .super-dica-content p:last-child {
+            margin-bottom: 0;
+        }
+    .super-dica-content figure {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+/* - - - - - - - - - -
+
+    >FOOTER
+
+- - - - - - - - - - */
+.footer-nav-bg {
+    color: #FFF;
+    background: #2B2B2B;
+    padding: 8rem 0 5rem;
+}
+.footer-nav-grid {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+    .footer-nav-grid p {
+        border-bottom: .1rem solid #515151;
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+    }
+    .footer-nav-grid p:last-child {
+        font-size: 13px; font-size: 1.3rem;
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+.footer-primeiro-no-enem img {
+    max-width: 10rem;
+    margin-bottom: 2rem;
+}
+.footer-redes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+    .footer-redes i {
+        font-size: 2.2rem;
+        width: 5rem;
+        height: 5rem;
+        color: #FFF;
+        margin: 2rem 4rem;
+        text-align: center;
+        padding-top: 1.4rem;
+        border-radius: 50%;
+    }
+        .footer-redes .fa-facebook {
+            background: #3B5998;
+        }
+        .footer-redes .fa-twitter {
+            background: #00ACED;
+        }
+        .footer-redes .fa-instagram {
+            background: #7E3B98;
+        }
+        .footer-redes .fa-linkedin {
+            background: #1C87BD;
+        }
