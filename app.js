@@ -21,7 +21,7 @@ mongoose.connect(uri, function(error) {
 require('./models/Contato');
 
 // public static files
-app.use(express.static(__dirname + '/landing'));
+app.use(express.static(__dirname + '/public'));
 // log http requests
 app.use(logger('dev'));
 // parse application/x-www-form-urlencoded                                    

@@ -74,7 +74,7 @@ router.get('/api/contatos/total', function(req, res) {
 // Rota para index.html
 router.get('*', function(req, res) {   
     var options = {
-    root: __dirname + '/../landing/',
+    root: __dirname + '/../public/views/landing/',
     dotfiles: 'deny',
     headers: {
         'x-timestamp': Date.now(),
