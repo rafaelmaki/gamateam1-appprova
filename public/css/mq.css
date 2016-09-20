@@ -179,14 +179,39 @@
 				width: 100%;
 			}
 
+			/* - - - - - - - - - -
+
+		>VIDEO
+
+	- - - - - - - - - - */
+	.video-grid h1 {
+		width: 75%;
+	}
+}
+
 /* - - - - - - - - - -
 
     >FORMULÁRIO
 
 - - - - - - - - - - */
--- Pedido Por Gregolin
+
 /*.formulario-bg {
     width: 800px;
     padding: 0;
 }
 */
+
+/* - - - - - - - - - -
+
+		>VIDEO
+
+	- - - - - - - - - - */
+	.video-grid {
+	    padding: 0;
+    }
+	.video-grid h1 {
+        width: 80%;
+    }
+	.video-logo {
+	    margin-bottom: 4rem;
+	}
