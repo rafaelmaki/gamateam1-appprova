@@ -178,3 +178,13 @@
 			.super-dica-content p:last-child {
 				width: 100%;
 			}
+
+/* - - - - - - - - - -
+
+    >FORMULÁRIO
+
+- - - - - - - - - - */
+.formulario-bg {
+    width: 800px;
+    padding: 0;
+}

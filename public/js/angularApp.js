@@ -61,7 +61,7 @@ angular.module('primeiroEnemApp')
         };
 
         var nome = $ctrl.model.nome;
-        var email = $ctrl.model.nome;
+        var email = $ctrl.model.email;
 
         if(!nome) {
             $ctrl.erros.nome = "Campo nome é obrigatório";
@@ -84,7 +84,7 @@ angular.module('primeiroEnemApp')
                 console.log(data);
                 // $window.alert("Cadastrado com sucesso");
                 SessionService.setUserAuthenticated(true);
-                $window.location.href = '/views/videos/index.html';
+                $window.location.href = '/views/videos/';
                 $uibModalInstance.close();
             })
             .error(function(err) {
