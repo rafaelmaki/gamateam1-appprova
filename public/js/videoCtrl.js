@@ -1,15 +1,43 @@
 var primeiroEnemApp = angular.module('primeiroEnemApp', ['ui.bootstrap']);
  
-angular
-  .module('primeiroEnemApp')
-  .controller('VideoController', VideoController);
+primeiroEnemApp.controller('VideoController', VideoController);
 
-function VideoController($scope, $window, SessionService) {    
- 
-    var test = SessionService.getUserAuthenticated();
+function VideoController($scope, $http, $window) {    
 
-    if(!test) {
-        $window.location.href = '/index.html';
-    }
+    $scope.showVideo = false;
+
+    //verificar se usuário possui token de acesso válido
+    $http({url: '/api/restrito/video', method: 'GET'})
+        .success(function (data, status, headers, config) {
+            console.log("ok");
+            $scope.showVideo = true;
+        })
+        .error(function(err) {
+            console.log('Error: ' + err);
+            $scope.showVideo = false;
+            $window.location.href = '/';
+        });
  
 }
+
+primeiroEnemApp.factory('authInterceptor', function ($rootScope, $q, $window) {
+  return {
+    request: function (config) {
+      config.headers = config.headers || {};
+      if ($window.sessionStorage.token) {
+        config.headers.Authorization = 'Bearer ' + $window.sessionStorage.token;
+      }
+      return config;
+    },
+    response: function (response) {
+      if (response.status === 401) {
+        // handle the case where the user is not authenticated
+      }
+      return response || $q.when(response);
+    }
+  };
+});
+
+primeiroEnemApp.config(function ($httpProvider) {
+  $httpProvider.interceptors.push('authInterceptor');
+});

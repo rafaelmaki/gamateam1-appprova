@@ -3,9 +3,7 @@
 // Criamos um módulo Angular chamado listaContatos
 var primeiroEnemApp = angular.module('primeiroEnemApp', ['ui.bootstrap']);
  
-angular
-  .module('primeiroEnemApp')
-  .controller('MainController', MainController);
+primeiroEnemApp.controller('MainController', MainController);
 
 function MainController($scope, $http, $window, $uibModal) {    
  
@@ -18,27 +16,10 @@ function MainController($scope, $http, $window, $uibModal) {
         controllerAs: '$ctrl'
       });
     };
-
-    // Quando clicar no botão Criar, envia informações para a API Node
-    $scope.criarContato = function() {
-        $http.post('/api/contatos', $scope.formContato)
-            .success(function(data) {
-                // Limpa o formulário para criação de outros contatos
-                $scope.formContato = {};
-                $scope.contatos = data;
-                console.log(data);
-                $window.alert("Cadastrado com sucesso");
-            })
-            .error(function(err) {
-                console.log('Error: ' + err);
-                $window.alert("Erro ao cadastrar: " + err);
-            });
-    };
  
 }
 
-angular.module('primeiroEnemApp')
-    .controller('ModalContatoInstanceCtrl', function ($uibModalInstance, $http, $window, SessionService) {
+primeiroEnemApp.controller('ModalContatoInstanceCtrl', function ($uibModalInstance, $http, $window) {
     var $ctrl = this;
 
     $ctrl.model = {};
@@ -82,18 +63,16 @@ angular.module('primeiroEnemApp')
                 $ctrl.formContato = {};
                 $ctrl.contatos = data;
                 console.log(data);
-                // $window.alert("Cadastrado com sucesso");
-                SessionService.setUserAuthenticated(true);
+                // gravação do token de acesso
+                $window.sessionStorage.token = data.token;
                 $window.location.href = '/views/videos/';
                 $uibModalInstance.close();
             })
             .error(function(err) {
                 console.log('Error: ' + err);
                 $ctrl.erros.mensagem = err;
-                SessionService.setUserAuthenticated(false);
-                // $window.alert("Erro ao cadastrar: " + err);
+                delete $window.sessionStorage.token;
             });
     };
 
   });
-

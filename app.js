@@ -4,6 +4,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var expressValidator = require('express-validator');
+var expressJwt = require('express-jwt');
 
 var app = express();
 
@@ -24,6 +25,8 @@ require('./models/Contato');
 app.use(express.static(__dirname + '/public'));
 // log http requests
 app.use(logger('dev'));
+
+app.use('/api/restrito', expressJwt({secret: config.jwtSecret}));
 // parse application/x-www-form-urlencoded                                    
 app.use(bodyParser.urlencoded({'extended':'true'}));
 // parse application/json          
@@ -32,6 +35,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(expressValidator());
 app.use(methodOverride());
+
+
  
  // including routes
 var index = require('./routes/index');

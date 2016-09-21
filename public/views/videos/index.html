@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="primeiroEnemApp">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +10,13 @@
         <link rel="stylesheet" href="../../css/main.css">
         <link rel="stylesheet" href="../../css/mq.css">
         <link rel="stylesheet" href="../../css/font-awesome-4.6.3/css/font-awesome.min.css">
+
+        <script src="../../lib/angular/angular.min.js"></script>
+        <script src="../../lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="../../js/videoCtrl.js"></script>
     </head>
-    <body class="grid grid-video">
+    <body class="grid grid-video" ng-controller="VideoController" >
     <!-- Google Tag Manager -->
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWVTMQ"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -21,7 +26,7 @@
         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NWVTMQ');</script>
     <!-- End Google Tag Manager -->
-        <header>
+        <header ng-if="showVideo">
             <section class="video-bg">
                 <section class="container video-grid">
                     <section class="video-logo">
@@ -33,12 +38,12 @@
                 </section>
             </section>
         </header>
-        <main>
+        <main ng-if="showVideo">
             <section class="video-yt">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/O5qYJAVsvC4?rel=0&amp;showinfo=0&amp;autoplay=1" allowfullscreen frameborder="0"></iframe>
             </section>
         </main>
-        <footer>
+        <footer ng-if="showVideo">
             <section class="footer-nav-bg footer-video-bg">
                 <section class="container footer-nav-grid footer-video-grid">
                     <p>Gostou do vídeo? Compartilhe com os seus amigos e receba em seu e-mail um artigo com mais dicas!</p>

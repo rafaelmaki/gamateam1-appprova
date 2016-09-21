@@ -3,14 +3,22 @@ var mongoose = require('mongoose');
 var router = express.Router();
 var Contato = mongoose.model('Contato');
 var util = require('util');
+var jwt = require('jsonwebtoken');
+
+var secret = require("../config/configDev.json").jwtSecret;;
+
+// API acessar video
+router.get('/api/restrito/video', function(req, res) {
+    res.send("ok").end();
+});
 
 // API listar contatos
 router.get('/api/contatos', function(req, res) {
     Contato.find(function(err, contatos) {
         if (err)
-            res.send(err)
+            res.send(err).end();
         // Retorna todos os contatos encontrados no BD
-        res.json(contatos); 
+        res.json(contatos).end();
     });
 });
  
@@ -33,28 +41,14 @@ router.post('/api/contatos', function(req, res) {
 
     Contato.findOne({ 'email': email}, function (err, contato) {
         if (err) {
-            Contato.create({
-                nome: nome,
-                email: email,
-                ipaddress: getClientIp(req),
-                data_contato: new Date(),
-                done : false
-            }, function(err, contato) {
-                if (err) {
-                    res.status(400).send(err).end();
-                }
-                else {
-                    res.send("Cadastrado com sucesso").end();
-                }
-                return;
-            });
+            insertContato(req, res, nome, email);
         } else {
             if(contato) {
-                res.send("Email já cadastrado!").end();
+                // res.send("Email já cadastrado!").end();
+                res.json({ token: gerarJwt(contato) });
             } else {
                 insertContato(req, res, nome, email);
             }
-            
             return;
         }
     });
@@ -72,7 +66,7 @@ router.get('/api/contatos/total', function(req, res) {
 });
  
 // Rota para index.html
-router.get('*', function(req, res) {   
+router.get('/', function(req, res) {   
     var options = {
     root: __dirname + '/../public/',
     dotfiles: 'deny',
@@ -130,10 +124,21 @@ function insertContato(req, res, nome, email) {
             res.status(400).send(err).end();
         }
         else {
-            res.send("Cadastrado com sucesso").end();
+            res.json({ token: gerarJwt(contato) });
+            // res.send("Cadastrado com sucesso").end();
         }
         return;
     });
+}
+
+function gerarJwt(contato) {
+    var profile = {
+        nome: contato.nome,
+        email: contato.email,
+        ip: contato.ip
+    };
+
+    return token = jwt.sign(profile, secret, { expiresIn: 600 });
 }
  
 module.exports = router;
