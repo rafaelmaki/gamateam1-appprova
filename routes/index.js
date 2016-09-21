@@ -4,6 +4,8 @@ var router = express.Router();
 var Contato = mongoose.model('Contato');
 var util = require('util');
 var jwt = require('jsonwebtoken');
+var _ = require('lodash');
+var moment = require('moment');
 
 var config = require("../config/configDev.json");
 var secret = config.jwtSecret;
@@ -16,13 +18,15 @@ router.get('/api/restrito/video', function(req, res) {
 // API listar contatos
 router.get('/api/restrito/contatos', function(req, res) {
     Contato.find(function(err, contatos) {
-        if (err)
+        if (err) {
             res.send(err).end();
-        // Retorna todos os contatos encontrados no BD
-        res.json(contatos).end();
+            return;
+        } else {
+            res.json(contatos).end();
+        }
     });
 });
- 
+
 // API Criar contato
 router.post('/api/contatos', function(req, res) {
 

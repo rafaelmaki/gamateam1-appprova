@@ -6,3 +6,4 @@ config/config.json
 iisnode.yml
 web.config
 _old/lib/
+public/lib/

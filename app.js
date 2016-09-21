@@ -35,8 +35,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(expressValidator());
 app.use(methodOverride());
-
-
  
  // including routes
 var index = require('./routes/index');

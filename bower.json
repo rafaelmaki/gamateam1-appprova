@@ -23,6 +23,8 @@
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.0",
     "jquery_appear": "^0.3.6",
-    "simple-line-icons": "^2.4.0"
+    "simple-line-icons": "^2.4.0",
+    "lodash": "^4.16.1",
+    "moment": "^2.15.1"
   }
 }

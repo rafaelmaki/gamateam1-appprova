@@ -1,6 +1,9 @@
 var app = angular.module('primeiroEnemAdmin', []);
 
-app.controller('AdminController', function($scope, $http, $window) {
+app.constant('_', _);
+app.constant('moment', moment);
+
+app.controller('AdminController', function($scope, $http, $window, _, moment) {
 
     $scope.total = 0;
     $scope.contatos = [];
@@ -30,7 +33,15 @@ app.controller('AdminController', function($scope, $http, $window) {
 
             $http.get('/api/restrito/contatos')
             .then(function (response) {
-                $scope.contatos = response.data;
+                var lista = _.map(response.data, function(contato) {
+                            return {
+                                nome: contato.nome,
+                                email: contato.email,
+                                ipaddress: contato.ipaddress.split(':')[0],
+                                data_contato: moment.utc(contato.data_contato).local().format("DD-MM-YYYY HH:mm:SS")
+                            }
+                        });
+                $scope.contatos = lista;
                 $scope.mostrarLista = true;
             });
         })
