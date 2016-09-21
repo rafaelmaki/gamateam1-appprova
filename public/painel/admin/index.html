@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="primeiroEnemAdmin">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Painel Admin</title>
+
+        <link rel="stylesheet" href="css/table.css">
+        <script src="../../lib/angular/angular.min.js"></script>
+        <script src="js/adminCtrl.js"></script>
+    </head>
+    <body class="grid grid-video" ng-controller="AdminController" >
+        <header>
+            <h2>Lista de Contatos</h2>
+        </header>
+        <div>
+            <label for="user">Usuário: </label>
+            <input type="text" placeholder="Digite seu nome de usuário" ng-model="user"
+                            name="user" id="user"
+                            style="margin-right: 20px">
+            <label for="password">Senha: </label>
+            <input type="password" placeholder="Digite seu e-mail" ng-model="password"
+                name="password" id="password">
+            <button type="button" ng-click="listarContatos()">Listar</button>
+        </div>
+        <div ng-if="mostrarTotal">
+            <h4>Total de contatos: {{total}}</h4>
+        </div>
+        <div ng-if="error">
+            <h4>{{error}}</h4>
+        </div>
+        <div ng-if="mostrarLista"> 
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th> 
+                    <th>IP</th>
+                    <th>Data de Contato</th>
+                </tr>
+                <tr ng-repeat="contato in contatos">
+                    <td>{{ contato.nome }}</td>
+                    <td>{{ contato.email  }}</td>
+                    <td>{{ contato.ipaddress  }}</td>
+                    <td>{{ contato.data_contato  }}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

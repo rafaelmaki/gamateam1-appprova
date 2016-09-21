@@ -1,4 +1,6 @@
 {
     "mongoConfig": "mongodb://mongodb:mongodb!gama1@appenemdb.brazilsouth.cloudapp.azure.com:27017/primeironoenemdev",
-    "jwtSecret": "dev_jwt_token1"
+    "jwtSecret": "dev_jwt_token1",
+    "painelAdminLogin": "admin",
+    "painelAdminPass": "admin"
 }

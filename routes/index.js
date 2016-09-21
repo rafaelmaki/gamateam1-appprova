@@ -5,7 +5,8 @@ var Contato = mongoose.model('Contato');
 var util = require('util');
 var jwt = require('jsonwebtoken');
 
-var secret = require("../config/configDev.json").jwtSecret;;
+var config = require("../config/configDev.json");
+var secret = config.jwtSecret;
 
 // API acessar video
 router.get('/api/restrito/video', function(req, res) {
@@ -13,7 +14,7 @@ router.get('/api/restrito/video', function(req, res) {
 });
 
 // API listar contatos
-router.get('/api/contatos', function(req, res) {
+router.get('/api/restrito/contatos', function(req, res) {
     Contato.find(function(err, contatos) {
         if (err)
             res.send(err).end();
@@ -56,7 +57,7 @@ router.post('/api/contatos', function(req, res) {
 });
 
 // API listar total contatos
-router.get('/api/contatos/total', function(req, res) {
+router.get('/api/restrito/contatos/total', function(req, res) {
     Contato.find(function(err, contatos) {
         if (err)
             res.send(err)
@@ -64,6 +65,32 @@ router.get('/api/contatos/total', function(req, res) {
         res.json(contatos.length); 
     });
 });
+
+// API listar total contatos
+router.get('/api/token', function(req, res) {
+    var user = req.query.user;
+    var password = req.query.password;
+
+    if(!user || !password) {
+        res.status(401).send("Acesso não autorizado!");
+        return;
+    } else {
+        if(user === config.painelAdminLogin && password === config.painelAdminPass) {
+            var profile = {
+                user: user
+            };
+
+            token = jwt.sign(profile, secret, { expiresIn: 180 });
+            res.json({ token: token });
+            return;
+        } else {
+            res.status(401).send("Acesso não autorizado!");
+            return;
+        }
+    }
+});
+
+
  
 // Rota para index.html
 router.get('/', function(req, res) {   
