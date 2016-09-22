@@ -10,13 +10,14 @@
         <link rel="stylesheet" href="../../css/main.css">
         <link rel="stylesheet" href="../../css/mq.css">
         <link rel="stylesheet" href="../../css/font-awesome-4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../footage/player.min.css">
 
         <script src="../../lib/angular/angular.min.js"></script>
         <script src="../../lib/angular-bootstrap/ui-bootstrap.min.js"></script>
         <script src="../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
         <script src="../../js/videoCtrl.js"></script>
     </head>
-    <body class="grid grid-video" ng-controller="VideoController" >
+    <body class="grid" ng-controller="VideoController">
     <!-- Google Tag Manager -->
         <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWVTMQ"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -27,37 +28,68 @@
         })(window,document,'script','dataLayer','GTM-NWVTMQ');</script>
     <!-- End Google Tag Manager -->
         <header ng-if="showVideo">
-            <section class="video-bg">
-                <section class="container video-grid">
-                    <section class="video-logo">
+            <section id="footage">
+                <section class="footage-grid">
+                    <section class="footage-logo container">
                         <figure>
-                            <img src="../../assets/logo-primeiro-no-enem.png" alt="Primeiro no Enem">
+                            <a href="/"><img src="../../assets/logo-primeiro-no-enem.png" alt="Primeiro no Enem"></a>
                         </figure>
                     </section>
-                    <h1 class="header-title">Bruno Galhardo, 1° na FGV e top 5 na Fuvest, conta seus segredos de sucesso para passar no ENEM</h1>
+                    <h1 class="header-title">Bruno Galhardo, 1° na FGV e top 5 na Fuvest, conta seus segredos de sucesso para passar no Enem</h1>
                 </section>
             </section>
         </header>
         <main ng-if="showVideo">
-            <section class="video-yt">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/O5qYJAVsvC4?rel=0&amp;showinfo=0&amp;autoplay=1" allowfullscreen frameborder="0"></iframe>
+            <section class="video-bg">
+                <section class="container video-grid">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/O5qYJAVsvC4?rel=0&amp;showinfo=0&amp;autoplay=1" allowfullscreen frameborder="0"></iframe>
+                </section>
+            </section>
+            <section class="blog-bg">
+                <section class="container blog-grid">
+                    <section class="blog-content">
+                        <h1 class="section-title">Veja mais dicas para passar no ENEM</h1>
+                        <section class="blog-post">
+                            <section class="blog-post-img">
+                                <figure>
+                                    <img src="../../assets/redacao-1000-thumb.jpg" alt="6 passos para uma redação nota 1000">
+                                </figure>
+                            </section>
+                            <article class="blog-post-content">
+                                <h2 class="section-subtitle">6 passos para uma redação nota 1000</h2>
+                                <p>1000 na redação! Sonho? Fantasia? Mais raro que Articuno no PokémonGO? Calma pequeno padawan, nós preparamos essas 6 dicas que vão te ajudar a chegar lá!</p>
+                                <a href="/views/dicas/redacao.html"><button class="cta cta-blog" >Veja mais</button></a>
+                            </article>
+                        </section>
+                    </section>
+                </section>
             </section>
         </main>
         <footer ng-if="showVideo">
-            <section class="footer-nav-bg footer-video-bg">
-                <section class="container footer-nav-grid footer-video-grid">
-                    <p>Gostou do vídeo? Compartilhe com os seus amigos e receba em seu e-mail um artigo com mais dicas!</p>
+            <section class="footer-nav-bg">
+                <section class="container footer-nav-grid">
+                    <section class="footer-primeiro-no-enem">
+                        <figure>
+                            <a href="/"><img src="../../assets/logo-primeiro-no-enem.png" alt="Primeiro no Enem"></a>
+                        </figure>
+                    </section>
+                    <p>Dicas e segredos valiosos para você atingir seus objetivos e ser o primeiro no Enem</p>
                     <section class="footer-redes">
                         <a href="https://www.facebook.com/primeironoenem" target="blank"><i class="fa fa-facebook"></i></a>
                         <a href="https://twitter.com/primeironoenem" target="blank"><i class="fa fa-twitter"></i></a>
                         <a href="https://www.instagram.com/primeironoenem2016" target="blank"><i class="fa fa-instagram"></i></a>
-                        <!--<a href="#" target="blank"><i class="fa fa-linkedin"></i></a>-->
-
                     </section>
                     <p>Copyright &copy; 2016 | Primeiro no Enem</p>
                 </section>
             </section>
         </footer>
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="../../footage/player.min.js"></script>
+        <script>
+            var myPlayer;
+            jQuery(function () {
+                myPlayer = jQuery("#video").YTPlayer();
+            });
+        </script>
     </body>
 </html>

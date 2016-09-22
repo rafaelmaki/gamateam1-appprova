@@ -38,24 +38,11 @@
 		width: 31.5%;
 		margin-bottom: 0;
 	}
-	.mensagem-grid {
-		flex-flow: row;
-		justify-content: space-between;
-	}
 	/* - - - - - - - - - -
 
 		>MENSAGEM
 
 	- - - - - - - - - - */
-	.mensagem-foto {
-		margin-right: 2rem;
-	}
-	.mensagem-foto img {
-	    margin-bottom: 0;
-	}
-	.mensagem-content {
-		width: 55%;
-	}
 	/* - - - - - - - - - -
 
 		>SUPER-DICA
@@ -111,6 +98,27 @@
 	.footer-redes i {
         margin: 2rem;
     }
+	/* - - - - - - - - - -
+
+	    >VIDEO
+
+	- - - - - - - - - - */
+	.post-logo {
+	    margin: 5.4rem 0 4rem;
+	}
+	.blog-post {
+	    display: flex;
+	}
+	.blog-post-img {
+		margin-right: 2rem;
+	}
+    .blog-post-img img {
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+    .blog-post-content {
+    	width: 50%;
+    }
 }
 
 @media (min-width: 1280px) {
@@ -154,9 +162,17 @@
 		>MENSAGEM
 
 	- - - - - - - - - - */
+	.mensagem-grid {
+		flex-flow: row;
+		justify-content: space-between;
+	}
 	.mensagem-foto {
-		max-width: inherit;
-		margin-right: inherit;
+		display: flex;
+		align-items: center;
+		margin-right: 2rem;
+	}
+	.mensagem-foto img {
+	    margin-bottom: 0;
 	}
 	.mensagem-content {
 		width: 66.5%;
@@ -178,40 +194,12 @@
 			.super-dica-content p:last-child {
 				width: 100%;
 			}
-
-			/* - - - - - - - - - -
-
-		>VIDEO
-
-	- - - - - - - - - - */
-	.video-grid h1 {
-		width: 75%;
-	}
-}
-
-/* - - - - - - - - - -
-
-    >FORMULÁRIO
-
-- - - - - - - - - - */
-
-/*.formulario-bg {
-    width: 800px;
-    padding: 0;
-}
-*/
-
 /* - - - - - - - - - -
 
 		>VIDEO
 
 	- - - - - - - - - - */
-	.video-grid {
-	    padding: 0;
+	.blog-post-content {
+    	width: inherit;
     }
-	.video-grid h1 {
-        width: 80%;
-    }
-	.video-logo {
-	    margin-bottom: 4rem;
-	}
+}

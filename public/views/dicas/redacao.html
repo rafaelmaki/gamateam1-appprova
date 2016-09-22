@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="primeiroEnemApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>6 passos para uma redação nota 1000 | Primeiro no Enem</title>
+        <link rel="stylesheet" href="../../css/reset.css">
+        <link rel="stylesheet" href="../../css/base.css">
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="../../css/mq.css">
+        <link rel="stylesheet" href="../../css/font-awesome-4.6.3/css/font-awesome.min.css">
+
+        <script src="../../lib/angular/angular.min.js"></script>
+        <script src="../../lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="../../js/dicasCtrl.js"></script>
+    </head>
+    <body class="grid" ng-controller="DicasController">
+    <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NWVTMQ"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NWVTMQ');</script>
+    <!-- End Google Tag Manager -->
+        <header ng-if="showDicas">
+            <section class="post-bg">
+                <section class="post-grid">
+                    <section class="post-logo container">
+                        <figure>
+                            <a href="/"><img src="../../assets/logo-primeiro-no-enem.png" alt="Primeiro no Enem"></a>
+                        </figure>
+                    </section>
+                    <h1 class="header-title">6 passos para uma redação nota 1000</h1>
+                </section>
+            </section>
+        </header>
+        <main ng-if="showDicas">
+            <section class="post-article-bg">
+                <section class="container post-article-grid">
+                    <section class="post-article-content">
+                        <h2 class="section-subtitle">1000 na redação! Sonho? Fantasia? Mais raro que Articuno no PokémonGO? Calma pequeno padawan, nós preparamos essas 6 dicas que vão te ajudar a chegar lá!</h2>
+                        <figure>
+                            <img src="../../assets/articuno.jpg" alt="Articuno Pokémon Go">
+                        </figure>
+                        <h3>1) Qual sua dificuldade?</h3>
+                        <p>Como falamos no nosso primeiro vídeo com dicas no ENEM, um dos aspectos fundamentais para fazer uma boa prova é o autoconhecimento. Por isso, avalie: <span class="bold">Qual a minha dificuldade em fazer uma redação?</span> Capacidade de argumentar? A introdução? Uso do vocabulário e não repetir palavras? Ligar as idéias? Nervosismo?</p>
+                        <p>Sabemos que é um pouco cliché, mas é porque é o método mais efetivo: <span class="bold">Treine, treine e treine!</span> Treine sua redação, abra o jornal, selecione uma notícia qualquer e tente realizar uma redação sobre aquele tema. Ao fazer isso constantemente você terá muito mais chances de fazer uma redação nota 1000.</p>
+                        <p>Quem vocês acham que está mais preparado, um candidato que fez 5 redações até a data do ENEM ou o que fez 20 redações?</p>
+                        <p><span class="bold">Treine!</span> Treine para tirar o nervoso e chegar até a nota 1000!</p>
+                        <p>Escolha um jornal e tente ler uma vez por dia ou a cada dois dias (<a href="www.estadao.com.br" target="_blank">estadao.com.br</a>, <a href="www.uol.com.br" target="_blank">uol.com.br</a>, <a href="www.folha.com.br" target="_blank">folha.com.br</a>) a página inicial e escolha um dos assuntos para escrever uma redação. Dessa forma, você se sentirá muito mais à vontade para escrever sobre qualquer tema que cair ;)</p>
+                        <h3>2) Brasil!</h3>
+                        <p>Boa redação do ENEM segue o seguinte Fluxo: <span class="bold">Tema -> Problema -> BRASIL.</span></p>
+                        <p>Isso mesmo, esqueça as mil maravilhas mundo a fora, as tecnologias mirabolantes do japão ou descobertas em Chernobyl. O ENEM promove a valorização dos aspectos sobre a cultura e a convivência social no BRASIL.</p>
+                        <p>Além disso, se apegue a um problema. O tema é tecnologia? Escolha um problema referente à tecnologia no Brasil. O tema é política? Selecione os problemas políticos brasileiros. E assim vai...</p>
+                        <p>O ENEM quer saber a capacidade de vocês em <span class="bold">observar a realidade à sua volta e estabelecer um raciocínio crítico.</span> Por isso, redação no <span class="bold">ENEM = problemas no BRASIL!</span></p>
+                        <figure>
+                            <img src="http://i.giphy.com/Dl2seYrwPvfjO.gif" alt="Dança moleque">
+                        </figure>
+                        <h3>3) Redação CP 2000</h3>
+                        <p>Checklist para uma redação nota 1000:</p>
+                        <ul>
+                            <li><span class="bold">Delimitação do Assunto:</span> Mantenha sua redação focada no assunto proposto. Não saia muito dele, seja sucinto e objetivo.</li>
+                            <li><span class="bold">Dissertação argumentativa:</span> Nada de histórias ou descrições. Apresente argumentos sobre o tema proposto.</li>
+                            <li><span class="bold">Microestrutura (Parágrafos) e textos (Macroestrutura):</span> Para construir um bom parágrafo, faça uma tese (<i>Ex: O Brasil é o país do futebol</i>) e apresente os porquês com fatos que comprovem o que você afirmou (<i>Ex: É o país do futebol por causa do seu histórico pentacampeão mundial, pelo fanatismo e massificação do esporte pela mídia e pela alta prática no cotidiano brasileiro</i>).</li>
+                            <li><span class="bold">Coesão e Coerência:</span> Siga o seu fluxo de dissertação e ligue uma ideia/parágrafo a outro através de conectivos. (é Possível afimar que / Podemos perceber que / Relativo à/ao (+tema/argumento), é possível que / No que se refere à/ao)</li>
+                            <li><span class="bold">Correção gramatical e boa gramática:</span> Fundamental em toda redação, revise e corrija os erros gramaticais e tente não repetir palavras, busque por sinônimos.</li>
+                        </ul>
+                        <h3>4) Modelo de Estrutura</h3>
+                        <p>O ENEM avalia a sua capacidade de reflexão e raciocínio sobre um determinado assunto. A forma mais prática de escrever uma redação e não perder o foco ao longo do texto é seguir o seguinte modelo:</p>
+                        <ul>
+                            <li><span class="bold">Introdução</span></li>
+                            <li><span class="bold">Argumento 1</span></li>
+                            <li><span class="bold">Argumento 2</span></li>
+                            <li><span class="bold">Argumento 3</span></li>
+                            <li><span class="bold">Conclusão</span></li>
+                        </ul>
+                        <p>Apresente o tema e o problema identificado, 3 argumentos sobre o problema e encerre com uma conclusão resumindo o tema abordado e propondo uma solução.</p>
+                        <h3>5) Dicas para sua Introdução</h3>
+                        <p>Se você não sabe como iniciar uma dissertação, nós recomendamos um modelo muito prático para uma introdução efetiva, separe por tópicos para elaborar sua redação:</p>
+                        <ul>
+                            <li>Breve história do tema</li>
+                            <li>Fatores positivos sobre o tema, como funciona em um Mundo ideal (Este pode ser algo fora do Brasil)</li>
+                            <li>Problemas do Mundo real (Este obrigatoriamente relacionado ao Brasil) para começar o direcionamento argumentativo.</li>
+                        </ul>
+                        <p>Exemplo de introdução de redação sobre Lixo e Sustentabilidade:</p>
+                        <p><i>"Em muitos países do mundo, o uso consciente do lixo e a reciclagem já se tornaram uma prioridade; No Brasil, entretanto, o atraso nas discussões em relação ao tratamento adequado de resíduos culminam na crescente poluição ano a ano. Isso se evidencia não só pela falta de interesse da população nesse sentido, mas também pela ineficiência do investimento e fiscalização pelo poder público."</i></p>
+                        <h3>6) Modelo de conclusão</h3>
+                        <p>Para concluir a sua redação nota 1000, retome a introdução e os fatos argumentados (Ex: Tendo em vista os argumentos apresentados sobre a/o ______________, é importante que...), elabore uma proposta de intervenção e ações ("como" e "para que") e envolva dois agentes sociais (ex: sociedade civil, autoridades/governo, mídia, indivíduo). Não tem segredo, os 200 pontos são seus!.</p>
+                        <p>A seguir, um Exemplo de uma conclusão de uma redação nota 1000 no ENEM em 2015:</p>
+                        <p><i>"Pode-se perceber, portanto, que as raízes históricas e ideológicas brasileiras dificultam a erradicação da violência contra a mulher no país. Para que essa erradicação seja possível, é necessário que as mídias deixem de utilizar sua capacidade de propagação de informação para promover a objetificação da mulher e passe a usá-la para difundir campanhas governamentais para a denúncia de agressão contra o sexo feminino. Ademais, é preciso que o Poder Legislativo crie um projeto de lei para aumentar a punição de agressores, para que seja possível diminuir a reincidência. Quem sabe, assim, o fim da violência contra a mulher deixe de ser uma utopia para o Brasil."</i></p>
+                        <p>Veja que a autora <span class="bold">retoma os argumentos apresentados sobre o tema e propõe uma solução envolvendo dois agentes sociais (mídia e Poder Legislativo) e ações efetivas para o combate ao problema.</span></p>
+                        <figure>
+                            <img src="http://i.giphy.com/11F0d3IVhQbreE.gif" alt="Bill Murray">
+                        </figure>
+                        <h4>Ufa! Chegamos ao fim. Gostaram pessoal? Temos certeza que seguindo esses 6 passos vocês irão conseguir realizar uma redação nota 1000!</h4>
+                        <h4>Não deixem de compartilhar nas redes sociais o <a href="http://www.PrimeiroNoEnem.com.br" target="_blank">Primeiro No Enem</a> e se tiverem dúvidas ou sugestões, enviem um e-mail para <a href="mailto:contato@primeironoenem.com.br">contato@primeironoenem.com.br</a></h4>
+                    </section>
+                </section>
+            </section>
+        </main>
+        <footer ng-if="showDicas">
+            <section class="footer-nav-bg">
+                <section class="container footer-nav-grid">
+                    <section class="footer-primeiro-no-enem">
+                        <figure>
+                            <a href="/"><img src="../../assets/logo-primeiro-no-enem.png" alt="Primeiro no Enem"></a>
+                        </figure>
+                    </section>
+                    <p>Dicas e segredos valiosos para você atingir seus objetivos e ser o primeiro no Enem</p>
+                    <section class="footer-redes">
+                        <a href="https://www.facebook.com/primeironoenem" target="blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/primeironoenem" target="blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/primeironoenem2016" target="blank"><i class="fa fa-instagram"></i></a>
+                    </section>
+                    <p>Copyright &copy; 2016 | Primeiro no Enem</p>
+                </section>
+            </section>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    </body>
+</html>

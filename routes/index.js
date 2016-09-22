@@ -4,14 +4,17 @@ var router = express.Router();
 var Contato = mongoose.model('Contato');
 var util = require('util');
 var jwt = require('jsonwebtoken');
-var _ = require('lodash');
-var moment = require('moment');
 
 var config = require("../config/configDev.json");
 var secret = config.jwtSecret;
 
 // API acessar video
 router.get('/api/restrito/video', function(req, res) {
+    res.send("ok").end();
+});
+
+// API acessar dicas
+router.get('/api/restrito/dicas', function(req, res) {
     res.send("ok").end();
 });
 

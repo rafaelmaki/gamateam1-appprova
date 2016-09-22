@@ -53,7 +53,7 @@ primeiroEnemApp.controller('ModalContatoInstanceCtrl', function ($uibModalInstan
         }
 
         if(!nome || !email) {
-            SessionService.setUserAuthenticated(false);
+            delete $window.sessionStorage.token;
             return;
         }
 

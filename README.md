@@ -4,6 +4,8 @@ Website do Grupo 1 - Primeiro no ENEM - Gama Experience SP
 
 Instruções
 
+Utilizando a MEAN Stack (MongoDB, Expressjs, Angularjs, Nodejs)
+
 Pré-requisitos:
 
 Instalar:<br>

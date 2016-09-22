@@ -206,7 +206,6 @@
         .footer-redes .fa-linkedin {
             background: #1C87BD;
         }
-    
 /* - - - - - - - - - -
 
     >FORMULÁRIO
@@ -218,7 +217,6 @@
     max-width: 80rem;
     margin: 0 auto;
 }
-
 .formulario-grid {
     display: flex;
     flex-flow: column;
@@ -279,44 +277,100 @@ p.formulario-status {
     height: 2rem;
 }
     .formulario-fechar i {
-        transform: translateY(-.150rem);
+        transform: translateY(-.375rem);
     }
-
 /* - - - - - - - - - -
 
     >VIDEO
 
 - - - - - - - - - - */
-.grid-video {
-    background: #000;
-}
 .video-bg {
-    width: 100%;
-    padding: 2.25rem 0 3rem;
+    background: #FAF8F5;
+    padding: 4rem 0;
 }
 .video-grid {
     display: flex;
-    flex-flow: column;
-    width: 100%;
-    padding: 2rem;
-    }
-        .video-grid h1 {
-            margin: 0 auto 2rem;
-            text-align: center;
-        }
-.video-logo {
-    margin-bottom: 2rem;
-}
-.video-yt {
-    display: flex;
     justify-content: center;
 }
-.footer-video-bg {
-    background: #000;
-    padding: 4rem 0 0;
+.blog-bg {
+    background: #F0EDE2;
+    padding: 7rem 0;
 }
-.footer-video-grid p {
-    border-bottom: 0;
+    .blog-bg:nth-child(odd) {
+        background: #FAF8F5;
+    }
+.blog-grid {
+    display: flex;
+    flex-flow: column;
+}
+.blog-content {
+    display: flex;
+    flex-flow: column;
+    }
+    .blog-content h1 {
+        margin-bottom: 3rem;
+    }
+    .blog-content h2 {
+        margin-bottom: 2rem;
+    }
+    .blog-content p {
+        margin-bottom: 2rem;
+    }
+    .blog-content .cta-blog {
+        margin: inherit;
+    }
+.blog-post-img img {
+    max-width: 100%;
     margin-bottom: 1rem;
-    padding-bottom: 0;
 }
+/* - - - - - - - - - -
+
+    >POST
+
+- - - - - - - - - - */
+.post-bg {
+    height: 40rem;
+    background: url(../assets/redacao-1000.jpg) center no-repeat;
+    background-size: cover;
+}
+.post-grid {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 40rem;
+    padding: 2rem;
+    background: rgba(0,0,0,.5);
+    }
+        .post-grid h1 {
+            margin-bottom: 2rem;
+        }
+        .post-grid h2 {
+            margin-bottom: 4rem;
+        }
+.post-logo {
+    margin-bottom: 4rem;
+}
+.post-article-bg {
+    background: #FAF8F5;
+}
+.post-article-content {
+    padding: 4rem 0;
+}
+    .post-article-content h3 {
+        font-size: 17px; font-size: 1.7rem;
+    }
+    .post-article-content h4 {
+        font-size: 15px; font-size: 1.5rem;
+    }
+    .post-article-content h2,
+    .post-article-content h3,
+    .post-article-content h4,
+    .post-article-content ul,
+    .post-article-content img,
+    .post-article-content p {
+        margin-bottom: 2rem;
+    }
+    .post-article-content li {
+        list-style-type: inherit;
+        list-style-position: inside;
+    }
