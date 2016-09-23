@@ -194,16 +194,15 @@
 			.super-dica-content p:last-child {
 				width: 100%;
 			}
-	/* - - - - - - - - - -
+/* - - - - - - - - - -
 
-		>VIDEO
+        >VIDEO
 
-	- - - - - - - - - - */
-	.blog-post-content {
-    	width: inherit;
+    - - - - - - - - - - */
+    .blog-post-content {
+       width: inherit;
+   }
+    .blog-post-img img {
+        max-width: inherit;
     }
-	.blog-post-img img {
-	    max-width: inherit;
-	}
-
 }

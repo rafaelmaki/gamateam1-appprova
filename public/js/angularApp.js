@@ -44,10 +44,12 @@ primeiroEnemApp.controller('ModalContatoInstanceCtrl', function ($uibModalInstan
 
         if(!nome) {
             $ctrl.erros.nome = "Campo nome é obrigatório";
+            console.log("Campo nome é obrigatório");
         }
 
         if(!email) {
             $ctrl.erros.email = "Campo email é obrigatório";
+            console.log("Campo email é obrigatório");
         }
 
         if(!nome || !email) {
@@ -96,16 +98,41 @@ primeiroEnemApp.controller('ModalContatoInstanceCtrl', function ($uibModalInstan
     }(document, 'script', 'facebook-jssdk'));
 
     $ctrl.FBLogin = function() {
+        checkLoginState();
+    };
+
+    function statusChangeCallback(response) {
+        if (response.status === 'connected') {
+            fetchFBInfo();
+        } else if (response.status === 'not_authorized') {
+        
+        } else {
+            callFBLogin(response);
+        }
+    };
+
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+    };
+
+    function callFBLogin(response) {
         FB.login(function(response) {
             if(response.authResponse) {
-                FB.api('/me', {fields: ['name','email']}, function(response) {
-                    $ctrl.model.nome = response.name;
-                    $ctrl.model.email = response.email;
-                    $ctrl.criarContato();
-                });
+                fetchFBInfo();
             } else {
                 console.log('Usuário não logado');
             }
         });
     };
+
+    function fetchFBInfo() {
+        FB.api('/me', {fields: ['name','email']}, function(response) {
+            $ctrl.model.nome = response.name;
+            $ctrl.model.email = response.email;
+            $ctrl.criarContato();
+        });
+    };
+
 });
