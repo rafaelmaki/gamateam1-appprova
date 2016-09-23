@@ -9,8 +9,6 @@ function MainController($scope, $http, $window, $uibModal) {
  
     $scope.openModalContato = function () {
       var modalInstance = $uibModal.open({
-        ariaLabelledBy: 'modal-title',
-        ariaDescribedBy: 'modal-body',
         templateUrl: 'cadastroModal.html',
         controller: 'ModalContatoInstanceCtrl',
         controllerAs: '$ctrl'
@@ -75,4 +73,39 @@ primeiroEnemApp.controller('ModalContatoInstanceCtrl', function ($uibModalInstan
             });
     };
 
-  });
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1796519727300376',
+            cookie     : true, 
+            xfbml      : true, 
+            version    : 'v2.7'
+        });
+
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    $ctrl.FBLogin = function() {
+        FB.login(function(response) {
+            if(response.authResponse) {
+                FB.api('/me', {fields: ['name','email']}, function(response) {
+                    $ctrl.model.nome = response.name;
+                    $ctrl.model.email = response.email;
+                    $ctrl.criarContato();
+                });
+            } else {
+                console.log('Usuário não logado');
+            }
+        });
+    };
+});

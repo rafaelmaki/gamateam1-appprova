@@ -156,6 +156,7 @@
     background: #2B2B2B;
     padding: 8rem 0 5rem;
 }
+
 .footer-nav-grid {
     display: flex;
     flex-flow: column;
@@ -330,8 +331,6 @@ p.formulario-status {
 - - - - - - - - - - */
 .post-bg {
     height: 40rem;
-    background: url(../assets/redacao-1000.jpg) center no-repeat;
-    background-size: cover;
 }
 .post-grid {
     display: flex;
@@ -357,7 +356,7 @@ p.formulario-status {
     padding: 4rem 0;
 }
     .post-article-content h3 {
-        font-size: 17px; font-size: 2.2em; font-weight: 700;
+        font-size: 17px; font-size: 1.7rem;
     }
     .post-article-content h4 {
         font-size: 15px; font-size: 1.5rem;
@@ -374,3 +373,49 @@ p.formulario-status {
         list-style-type: inherit;
         list-style-position: inside;
     }
+.post-6-passos-bg {
+    background: url(../assets/redacao-1000.jpg) center no-repeat;
+    background-size: cover;
+}
+.post-10-passos-bg {
+    background: url(../assets/10-passos.jpg) center no-repeat;
+    background-size: cover;
+}
+
+
+.share-title {
+    text-align: center;
+}
+
+.footer-share {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+    .footer-share i {
+        font-size: 2.2rem;
+        width: 10rem;
+        height: 5rem;
+        color: #FFF;
+        margin: 2rem 1rem;
+        text-align: center;
+        padding-top: 1.4rem;
+    }
+        .footer-share .fa-facebook {
+            background: #3B5998;
+        }
+        .footer-share .fa-twitter {
+            background: #00ACED;
+        }
+        .footer-share .fa-instagram {
+            background: #7E3B98;
+        }
+        .footer-share .fa-linkedin {
+            background: #1C87BD;
+        }
+
+.formulario-grid button.cta-login-facebook {
+    background: #3B5998;
+    margin-bottom: 2.5rem;
+}

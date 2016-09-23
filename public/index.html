@@ -12,12 +12,13 @@
         <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="footage/player.min.css">
 
-        <link rel="stylesheet" href="css/modal.css" type="text/css" />
         <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" type="text/css" />
         <script src="lib/angular/angular.min.js"></script>
         <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
         <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
         <script src="js/angularApp.js"></script>
+
     </head>
     <body class="grid" ng-controller="MainController">
         <!-- Google Tag Manager -->
@@ -29,6 +30,7 @@
         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NWVTMQ');</script>
         <!-- End Google Tag Manager -->
+
         <header>
             <section id="footage">
                 <section class="footage-grid">
@@ -45,6 +47,23 @@
             <section id="video" class="player" data-property="{videoURL:'4RYmuYiOeM0',containment:'#footage', showControls:false, autoPlay:true, loop:true, mute:true, startAt:0, opacity:1, addRaster:true, quality:'small'}"></section>
         </header>
         <main>
+            <section class="mensagem-bg">
+                <section class="container mensagem-grid">
+                    <section class="mensagem-foto">
+                        <figure>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/gkleqnycjJs" frameborder="0" allowfullscreen></iframe>
+                        </figure>
+                    </section>
+                    <section class="mensagem-content">
+                        <h1 class="section-title">Mensagem do Bruno Galhardo</h1>
+                        <p>Olá! Assim como você, também sou um estudante, e sei bem a dificuldade que passamos, o quanto estudamos e a falta de tempo.</p>
+                        <p>Sabia que 39% dos alunos ainda não começaram a estudar para as provas? E isso acontece porque muitos tem medo de não passar.</p>
+                        <p>Por isso fiz questão de dispor de um pouco do meu tempo e gravar esse vídeo, onde conto a você, as dicas mais valiosas que me fez ser primeiro colocado em alguns dos vestibulares mais concorridos do país.</p>
+                        <button class="cta cta-mensagem" ng-click="openModalContato()">Quero assistir o vídeo completo</button>
+                    </section>
+                </section>
+            </section>
+
             <section class="juntese-bg">
                 <section class="container juntese-grid">
                     <h1 class="section-title">Junte-se aos mais de <span class="bold numero">27.364</span> estudantes que já viram nossas valiosas dicas</h1>
@@ -80,22 +99,7 @@
                     <button class="cta" ng-click="openModalContato()">Quero ser aprovado</button>
                 </section>
             </section>
-            <section class="mensagem-bg">
-                <section class="container mensagem-grid">
-                    <section class="mensagem-foto">
-                        <figure>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/gkleqnycjJs" frameborder="0" allowfullscreen></iframe>
-                        </figure>
-                    </section>
-                    <section class="mensagem-content">
-                        <h1 class="section-title">Mensagem do Bruno Galhardo</h1>
-                        <p>Olá! Assim como você, também sou um estudante, e sei bem a dificuldade que passamos, o quanto estudamos e a falta de tempo.</p>
-                        <p>Sabia que 39% dos alunos ainda não começaram a estudar para as provas? E isso acontece porque muitos tem medo de não passar.</p>
-                        <p>Por isso fiz questão de dispor de um pouco do meu tempo e gravar esse vídeo, onde conto a você, as dicas mais valiosas que me fez ser primeiro colocado em alguns dos vestibulares mais concorridos do país.</p>
-                        <button class="cta cta-mensagem" ng-click="openModalContato()">Quero assistir o vídeo completo</button>
-                    </section>
-                </section>
-            </section>
+            
             <section class="super-dica-bg">
                 <section class="container super-dica-grid">
                     <section class="super-dica-content">
@@ -144,6 +148,8 @@
                     <p class="formulario-status">50% completo</p>
                     <p>Estamos quase lá: Digite seu nome e seu e-mail para confirmar a sua humanidade. <i class="fa fa-smile-o" aria-hidden="true"></i></p>
                     <h1 class="section-title">Digite seu nome e e-mail abaixo para assistir as melhores dicas para estudar para o ENEM</h1>
+                    <button class="cta cta-login-facebook" ng-click="$ctrl.FBLogin()"><i class="fa fa-facebook-official"></i> Login com o Facebook</button>
+                    <p>ou</p>
                     <form>
                         <input type="text" placeholder="Digite seu nome" ng-model="$ctrl.model.nome"
                             name="nome" id="nome">
@@ -158,5 +164,6 @@
                 </section>
             </section>
         </script>
+
     </body>
 </html>
