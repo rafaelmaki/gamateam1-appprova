@@ -1,4 +1,4 @@
-var app = angular.module('primeiroEnemAdmin', []);
+var app = angular.module('primeiroEnemAdmin', ['ngJsonExportExcel']);
 
 app.constant('_', _);
 app.constant('moment', moment);
@@ -38,7 +38,7 @@ app.controller('AdminController', function($scope, $http, $window, _, moment) {
                                 nome: contato.nome,
                                 email: contato.email,
                                 ipaddress: contato.ipaddress.split(':')[0],
-                                data_contato: moment.utc(contato.data_contato).local().format("DD-MM-YYYY HH:mm:SS")
+                                data_contato: ' ' + moment.utc(contato.data_contato).local().format("DD-MM-YYYY HH:mm:SS")
                             }
                         });
                 $scope.contatos = lista;

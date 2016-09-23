@@ -11,6 +11,8 @@
         <script src="../../lib/lodash/lodash.js"></script>
         <script src="../../lib/moment/moment.js"></script>
         <script src="../../lib/moment/locale/br.js"></script>
+        <script src="../../lib/json-export-excel/dest/json-export-excel.min.js"></script>
+        <script src="../../lib/file-saver/FileSaver.min.js"></script>
         <script src="js/adminCtrl.js"></script>
     </head>
     <body class="grid grid-video" ng-controller="AdminController" >
@@ -26,6 +28,14 @@
             <input type="password" placeholder="Digite seu e-mail" ng-model="password"
                 name="password" id="password">
             <button type="button" ng-click="listarContatos()">Listar</button>
+        </div>
+        <div ng-if="mostrarTotal">
+            <hr>
+            <button ng-json-export-excel data="contatos" 
+                report-fields="{nome: 'Nome', email: 'Email', ipaddress: 'Endereço IP', data_contato: 'Data de Cadastro'}" 
+                filename="'base_leads'" class="btn-sm btn-primary">Exportar para Excel</button>
+            </button>
+            <hr>
         </div>
         <div ng-if="mostrarTotal">
             <h4>Total de contatos: {{total}}</h4>

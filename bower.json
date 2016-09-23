@@ -25,6 +25,7 @@
     "jquery_appear": "^0.3.6",
     "simple-line-icons": "^2.4.0",
     "lodash": "^4.16.1",
-    "moment": "^2.15.1"
+    "moment": "^2.15.1",
+    "json-export-excel": "ng-json-export-excel#^1.0.2"
   }
 }
