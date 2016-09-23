@@ -18,7 +18,6 @@
         <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
         <script src="js/angularApp.js"></script>
-
     </head>
     <body class="grid" ng-controller="MainController">
         <!-- Google Tag Manager -->
@@ -41,7 +40,8 @@
                     </section>
                     <h1 class="header-title">Muitos estudantes <span class="bold red">incluindo você</span> cometem os mesmos erros ao tentar <span class="bold red">passar no ENEM</span></h1>
                     <h2 class="header-subtitle">Aprenda <span class="bold">agora</span> as principais dicas de estudo utilizadas pelos primeiros colocados no ENEM</h2>
-                    <button class="cta" ng-click="openModalContato()">Quero passar no ENEM</button>
+                    <!--<button class="cta" ng-click="openModalContato()">Quero passar no ENEM</button>-->
+                    <a class="cta" href="#contato"><button class="cta">Quero passar no ENEM</button></a>
                 </section>
             </section>
             <section id="video" class="player" data-property="{videoURL:'4RYmuYiOeM0',containment:'#footage', showControls:false, autoPlay:true, loop:true, mute:true, startAt:0, opacity:1, addRaster:true, quality:'small'}"></section>
@@ -59,7 +59,8 @@
                         <p>Olá! Assim como você, também sou um estudante, e sei bem a dificuldade que passamos, o quanto estudamos e a falta de tempo.</p>
                         <p>Sabia que 39% dos alunos ainda não começaram a estudar para as provas? E isso acontece porque muitos tem medo de não passar.</p>
                         <p>Por isso fiz questão de dispor de um pouco do meu tempo e gravar esse vídeo, onde conto a você, as dicas mais valiosas que me fez ser primeiro colocado em alguns dos vestibulares mais concorridos do país.</p>
-                        <button class="cta cta-mensagem" ng-click="openModalContato()">Quero assistir o vídeo completo</button>
+                        <!--<button class="cta cta-mensagem" ng-click="openModalContato()">Quero assistir o vídeo completo</button>-->
+                        <a class="cta" href="#contato"><button class="cta">Quero assistir o vídeo completo</button></a>
                     </section>
                 </section>
             </section>
@@ -96,7 +97,8 @@
                             <p>Identifique suas forças e fraquezas e faça ajustes para obter os melhores resultados.</p>
                         </section>
                     </section>
-                    <button class="cta" ng-click="openModalContato()">Quero ser aprovado</button>
+                    <!--<button class="cta" ng-click="openModalContato()">Quero ser aprovado</button>-->
+                    <a class="cta" href="#contato"><button class="cta">Quero ser aprovado</button></a>
                 </section>
             </section>
             
@@ -111,6 +113,20 @@
                         <p>Siga os estudantes que mais se destacam e também faça uso de áreas de estudos organizadas por matérias, simulados com correção automática e estatísticas para descobrir seus pontos fortes e fracos e direcionar seus estudos. Faça uma busca no Google.</p>
                     </section>
                 </section>
+            </section>
+
+
+            <section id="contato" class="formulario-grid" >       
+                <h1 class="section-title">Digite seu nome e e-mail abaixo para assistir as melhores dicas para estudar para o ENEM</h1>             
+                <form>
+                    <input type="text" placeholder="Digite seu nome" ng-model="model.nome"
+                        name="nome" id="nome">
+                    <input type="email" placeholder="Digite seu e-mail" ng-model="model.email"
+                        name="email" id="email">
+                    <button class="cta cta-mensagem" type="submit" ng-click="criarContato()">Quero passar no ENEM</button>
+                    <p>Odiamos SPAM tanto quanto você, seus dados estão 100% seguros</p>
+                </form>
+                
             </section>
         </main>
         <footer>

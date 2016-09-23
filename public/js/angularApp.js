@@ -14,6 +14,49 @@ function MainController($scope, $http, $window, $uibModal) {
         controllerAs: '$ctrl'
       });
     };
+
+    $scope.criarContato = function() {
+        $scope.erros = {
+            nome: null,
+            email: null,
+            mensagem: null
+        };
+
+        var nome = $scope.model.nome;
+        var email = $scope.model.email;
+
+        if(!nome) {
+            $scope.erros.nome = "Campo nome é obrigatório";
+            console.log("Campo nome é obrigatório");
+        }
+
+        if(!email) {
+            $scope.erros.email = "Campo email é obrigatório";
+            console.log("Campo email é obrigatório");
+        }
+
+        if(!nome || !email) {
+            delete $window.sessionStorage.token;
+            return;
+        }
+
+        $http.post('/api/contatos', $scope.model)
+            .success(function(data) {
+                // Limpa o formulário para criação de outros contatos
+                $scope.formContato = {};
+                $scope.contatos = data;
+                console.log(data);
+                // gravação do token de acesso
+                $window.sessionStorage.token = data.token;
+                $window.location.href = '/views/videos/';
+                $uibModalInstance.close();
+            })
+            .error(function(err) {
+                console.log('Error: ' + err);
+                $scope.erros.mensagem = err;
+                delete $window.sessionStorage.token;
+            });
+    };
  
 }
 
